@@ -73,8 +73,21 @@ p {
   font-weight: 900;
 }
 
+.info {
+  position: absolute;
+  bottom: 100px;
+  color: #fff;
+
+  text-align: center;
+}
+
+.info span {
+  font-weight: 900;
+}
+
 span {
-  color: #f72585;
+  color: #ecd448;
+  /* color: #f72585; */
 }
 
 .game-board {
@@ -167,7 +180,22 @@ span {
 
 @media screen and (max-width: 768px) {
   p {
+    font-size: 1rem;
     text-align: center;
+    bottom: 30px;
+  }
+
+  .info {
+    position: absolute;
+    bottom: 60px;
+    color: #fff;
+  
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .info span {
+    font-weight: 900;
   }
 
   .clouds {
@@ -178,7 +206,7 @@ span {
     from {
       right: -160px;
     }
-  
+
     to {
       right: 100%;
     }
