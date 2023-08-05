@@ -21,6 +21,20 @@
   z-index: 1;
 }
 
+.score,
+.previous-score {
+  text-align: center;
+  margin-top: 20px;
+
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 9000;
+}
+
+.score {
+  margin-top: 0;
+}
+
 .btn {
   position: absolute;
   padding: 1.1em 2em;

@@ -10,10 +10,15 @@ const themeAudio = document.querySelector('.theme-audio')
 const jumpAudio = document.querySelector('.jump-audio')
 const deadAudio = document.querySelector('.dead-audio')
 const menuAudio = document.querySelector('.menu-audio')
+const scoreElement = document.getElementById('scoreValue')
+const previousScoreElement = document.getElementById('previousScoreValue')
 
-const morningGradient = "linear-gradient(to top, #FAD0C4, #FFB6B9, #FFC0CB)";
-const afternoonGradient = "linear-gradient(to top, #FFDAB9, #FFA07A, #FF7F50)";
-const nightGradient = "linear-gradient(to top, #4169E1, #483D8B, #6A5ACD)";
+const morningGradient = "linear-gradient(to top, #FAD0C4, #FFB6B9, #FFC0CB)"
+const afternoonGradient = "linear-gradient(to top, #FFDAB9, #FFA07A, #FF7F50)"
+const nightGradient = "linear-gradient(to top, #4169E1, #483D8B, #6A5ACD)"
+
+let score = 0
+let previousScore = 0
 
 window.onload = menuAudio.play()
 themeAudio.volume = 0.75
@@ -61,12 +66,25 @@ const start = () => {
     }
   };
 
+  const previousScoreFromLocalStorage = localStorage.getItem('previousScore');
+  if (previousScoreFromLocalStorage !== null) {
+    previousScore = parseInt(previousScoreFromLocalStorage);
+    updatePreviousScoreDisplay();
+  }
+
   const loop = setInterval(() => {
     const pipePosition = pipe.offsetLeft
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '')
     const cloudsPosition = +window.getComputedStyle(clouds).right.replace('px', '')
 
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition <= 80) {
+      previousScore = score > previousScore ? score : previousScore;
+      localStorage.setItem('previousScore', previousScore);
+      updatePreviousScoreDisplay();
+
+      score = 0;
+      scoreElement.textContent = score;
+
       mario.src = '/images/dead-mario.png'
       mario.style.width = '55px'
       mario.style.marginLeft = '10px'
@@ -87,8 +105,15 @@ const start = () => {
       setInterval(() => {
         location.reload()
       }, 3250)
+    } else {
+      score += 1
+      scoreElement.textContent = score
     }
   }, 10);
+
+  function updatePreviousScoreDisplay() {
+    previousScoreElement.textContent = previousScore;
+  }
 
   document.addEventListener('keydown', jump)
   document.addEventListener('click', jump)
