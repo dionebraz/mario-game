@@ -127,7 +127,7 @@ span {
 .clouds {
   position: absolute;
   top: 30px;
-  right: 0;
+  right: -320px;
   width: 320px;
   animation: clouds-animation 15s linear infinite;
 }

@@ -16,8 +16,16 @@ menuAudio.volume = 0.75;
 
 window.onload = menuAudio.play();
 
+
 const start = () => {
   menu.style.display = 'none';
+  pipe.style.animation = 'none';
+  clouds.style.animation = 'none';
+
+  setInterval(() => {
+    pipe.style.animation = 'pipe-animation 1.5s linear infinite'
+    clouds.style.animation = 'clouds-animation 15s linear infinite'
+  }, 2400)
 
   menuAudio.pause();
   themeAudio.play();
@@ -30,59 +38,53 @@ const start = () => {
     gameBoard.classList.add('night-sky')
   }, 30000)
 
-  setInterval(() => {
-    let jumping = false;
+  let jumping = false;
 
-    const jump = () => {
-      if (!jumping) {
-        jumping = true;
-        mario.classList.add('jump');
-        jumpAudio.play();
-        jumpAudio.volume = 0.5;
+  const jump = () => {
+    if (!jumping) {
+      jumping = true;
+      mario.classList.add('jump');
+      jumpAudio.play();
+      jumpAudio.volume = 0.5;
 
-        setTimeout(() => {
-          mario.classList.remove('jump');
-          jumping = false;
-        }, 500);
-      }
-    };
-
-    const loop = setInterval(() => {
-      const pipePosition = pipe.offsetLeft;
-      const marioPosition = +window
-        .getComputedStyle(mario)
-        .bottom.replace('px', '');
-      const cloudsPosition = +window
-        .getComputedStyle(clouds)
-        .right.replace('px', '');
-
-      if (pipePosition <= 120 && pipePosition > 0 && marioPosition <= 80) {
-        mario.src = '/images/dead-mario.png';
-        mario.style.width = '55px';
-        mario.style.marginLeft = '10px';
-        mario.style.bottom = `${marioPosition}px`;
+      setTimeout(() => {
         mario.classList.remove('jump');
+        jumping = false;
+      }, 500);
+    }
+  };
 
-        pipe.style.animation = 'none';
-        pipe.style.left = `${pipePosition}px`;
+  const loop = setInterval(() => {
+    const pipePosition = pipe.offsetLeft;
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
+    const cloudsPosition = +window.getComputedStyle(clouds).right.replace('px', '');
 
-        clouds.style.right = `${cloudsPosition}px`;
-        clouds.style.animation = 'none';
+    if (pipePosition <= 120 && pipePosition > 0 && marioPosition <= 80) {
+      mario.src = '/images/dead-mario.png';
+      mario.style.width = '55px';
+      mario.style.marginLeft = '10px';
+      mario.style.bottom = `${marioPosition}px`;
+      mario.classList.remove('jump');
 
-        themeAudio.volume = 0.4;
-        deadAudio.play();
+      pipe.style.animation = 'none';
+      pipe.style.left = `${pipePosition}px`;
 
-        clearInterval(loop);
+      clouds.style.right = `${cloudsPosition}px`;
+      clouds.style.animation = 'none';
 
-        setInterval(() => {
-          location.reload();
-        }, 3250);
-      }
-    }, 10);
+      themeAudio.volume = 0.4;
+      deadAudio.play();
 
-    document.addEventListener('keydown', jump);
-    document.addEventListener('click', jump);
-  }, 1500);
+      clearInterval(loop);
+
+      setInterval(() => {
+        location.reload();
+      }, 3250);
+    }
+  }, 10);
+
+  document.addEventListener('keydown', jump);
+  document.addEventListener('click', jump);
 };
 
 startButton.addEventListener('click', start);
