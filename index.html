@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Mario game</title>
-  </head>
 
-  <body>
-    <div class="menu">
-      <button class="btn">COMEÇAR!</button>
-      <p>Desenvolvido por <span>Dione</span> & <span>Marcelo</span>.</p>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Mario game</title>
+</head>
 
-    <div class="game-board">
-      <img src="/images/pipe.png" alt="" class="pipe" draggable="false" />
-      <img
-        src="/images/run-mario.gif"
-        alt=""
-        class="run-mario"
-        draggable="false"
-      />
-      <img
-        src="/images/clouds.png"
-        alt="Nuves"
-        class="clouds"
-        draggable="false"
-      />
-    </div>
+<body>
+  <div class="menu">
+    <button class="btn">COMEÇAR!</button>
+    <p>Desenvolvido por <span>Dione</span> & <span>Marcelo</span>.</p>
+  </div>
 
-    <audio class="theme-audio" src="/audio/theme.mp3" autoplay loop></audio>
-    <audio class="jump-audio" src="/audio/jump.mp3"></audio>
-    <audio class="dead-audio" src="/audio/dead.mp3"></audio>
+  <div class="game-board">
+    <img src="/images/pipe.png" alt="" class="pipe" draggable="false" />
+    <img src="/images/run-mario.gif" alt="" class="run-mario" draggable="false" />
+    <img src="/images/clouds.png" alt="Nuves" class="clouds" draggable="false" />
+  </div>
 
-    <script src="main.js"></script>
-  </body>
+  <audio class="theme-audio" src="/audio/theme.mp3" autoplay loop></audio>
+  <audio class="jump-audio" src="/audio/jump.mp3"></audio>
+  <audio class="dead-audio" src="/audio/dead.mp3"></audio>
+
+  <script src="main.js"></script>
+</body>
+
 </html>

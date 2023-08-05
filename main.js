@@ -3,6 +3,7 @@
 const mario = document.querySelector('.run-mario');
 const pipe = document.querySelector('.pipe');
 const clouds = document.querySelector('.clouds');
+const gameBoard = document.querySelector('.game-board');
 const menu = document.querySelector('.menu');
 const startButton = document.querySelector('.btn');
 const themeAudio = document.querySelector('.theme-audio');
@@ -13,6 +14,14 @@ themeAudio.volume = 0.75;
 
 const start = () => {
   menu.style.display = 'none';
+
+  setTimeout(() => {
+    gameBoard.classList.add('afternoon-sky')
+  }, 15000)
+
+  setTimeout(() => {
+    gameBoard.classList.add('night-sky')
+  }, 30000)
 
   setInterval(() => {
     let jumping = false;
