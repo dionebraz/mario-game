@@ -11,10 +11,29 @@ const jumpAudio = document.querySelector('.jump-audio')
 const deadAudio = document.querySelector('.dead-audio')
 const menuAudio = document.querySelector('.menu-audio')
 
+const morningGradient = "linear-gradient(to top, #FAD0C4, #FFB6B9, #FFC0CB)";
+const afternoonGradient = "linear-gradient(to top, #FFDAB9, #FFA07A, #FF7F50)";
+const nightGradient = "linear-gradient(to top, #4169E1, #483D8B, #6A5ACD)";
+
+window.onload = menuAudio.play()
 themeAudio.volume = 0.75
 menuAudio.volume = 0.75
 
-window.onload = menuAudio.play()
+function changeBackground() {
+  const now = new Date();
+  const hours = now.getHours();
+
+  if (hours >= 6 && hours < 12) {
+    gameBoard.style.background = morningGradient;
+  } else if (hours >= 12 && hours < 18) {
+    gameBoard.style.background = afternoonGradient;
+  } else {
+    gameBoard.style.background = nightGradient;
+    gameBoard.style.borderBottom = '20px solid rgba(0, 140, 0, 0.5)'
+  }
+}
+
+changeBackground()
 
 const start = () => {
   menu.style.display = 'none'
