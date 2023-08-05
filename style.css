@@ -101,19 +101,14 @@ span {
   background: linear-gradient(to bottom, #87ceeb, #ffffff);
 }
 
-.afternoon-sky {
-  background: linear-gradient(to bottom, #FE5D15, #ffffff);
-}
-
-.night-sky {
-  background: linear-gradient(to bottom, #2C2C2C, transparent);
-}
-
 .pipe {
   position: absolute;
   bottom: 0;
   right: -80px;
   width: 80px;
+}
+
+.pipe.pipe-animation {
   animation: pipe-animation 1.5s linear infinite;
 }
 
@@ -129,6 +124,9 @@ span {
   top: 30px;
   right: -320px;
   width: 320px;
+}
+
+.clouds.clouds-animation {
   animation: clouds-animation 15s linear infinite;
 }
 
@@ -189,11 +187,11 @@ span {
     position: absolute;
     bottom: 60px;
     color: #fff;
-  
+
     font-size: 12px;
     text-align: center;
   }
-  
+
   .info span {
     font-weight: 900;
   }
