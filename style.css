@@ -161,4 +161,34 @@ span {
   p {
     text-align: center;
   }
+
+  .run-mario, .pipe {
+    width: 40;
+  }
+
+  .pipe {
+    animation-duration: 700ms;
+  }
+
+  @keyframes jump {
+    0% {
+      bottom: 0px;
+    }
+
+    40% {
+      bottom: 90px;
+    }
+
+    50% {
+      bottom: 90px;
+    }
+
+    60% {
+      bottom: 90px;
+    }
+
+    100% {
+      bottom: 0px;
+    }
+  }
 }
