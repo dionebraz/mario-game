@@ -9,11 +9,18 @@ const startButton = document.querySelector('.btn');
 const themeAudio = document.querySelector('.theme-audio');
 const jumpAudio = document.querySelector('.jump-audio');
 const deadAudio = document.querySelector('.dead-audio');
+const menuAudio = document.querySelector('.menu-audio');
 
 themeAudio.volume = 0.75;
+menuAudio.volume = 0.75;
+
+window.onload = menuAudio.play();
 
 const start = () => {
   menu.style.display = 'none';
+
+  menuAudio.pause();
+  themeAudio.play();
 
   setTimeout(() => {
     gameBoard.classList.add('afternoon-sky')
