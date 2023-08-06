@@ -28,7 +28,7 @@
 
   color: #fff;
   font-size: 1.5rem;
-  font-weight: 9000;
+  font-weight: 900;
 }
 
 .score {
@@ -92,6 +92,7 @@ p {
   bottom: 100px;
   color: #fff;
 
+  display: none;
   text-align: center;
 }
 
@@ -202,6 +203,8 @@ span {
     bottom: 60px;
     color: #fff;
 
+    display: block;
+
     font-size: 12px;
     text-align: center;
   }
@@ -221,6 +224,12 @@ span {
 
     to {
       right: 100%;
+    }
+  }
+
+  @media (orientation: landscape) {
+    .info {
+      display: none;
     }
   }
 }
