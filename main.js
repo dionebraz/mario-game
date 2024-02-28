@@ -21,8 +21,8 @@ let score = 0
 let previousScore = 0
 
 window.onload = menuAudio.play()
-themeAudio.volume = 0.75
-menuAudio.volume = 0.75
+themeAudio.volume = 0.25
+menuAudio.volume = 0.25
 
 function changeBackground() {
   const now = new Date();
